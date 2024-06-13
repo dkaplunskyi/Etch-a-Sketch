@@ -1,7 +1,9 @@
 let container = document.querySelector('.grid');
 let grid = document.querySelector('#grid');
 let colorPicker = document.querySelector('#colorPicker');
-let colorsBtn = document.querySelectorAll('input[type="button"]');
+let rainbowBtn = document.querySelector('#rainbow');
+let blackBtn = document.querySelector('#black');
+let resetBtn = document.querySelector('#reset');
 
 let gridAria = 16;
 
@@ -10,11 +12,15 @@ grid.addEventListener('change', (e) => {
   if (value > 100) {
     alert('Maximum size is 100');
   } else {
-    gridAria = e.target.value;
-    deleteGrid();
-    createGrid();
+    gridAria = value;
+    resetGrid();
   }
 })
+
+let resetGrid = () => {
+  deleteGrid();
+  createGrid();
+}
 
 let deleteGrid = () => {
   container.replaceChildren();
@@ -31,6 +37,13 @@ let createGrid = () => {
       // square.textContent = `${i}:${j}`;
     }
   }
+
+  let squares = document.querySelectorAll('.square');
+  squares.forEach((sqr) => {
+    sqr.addEventListener('mouseover', (e) => {
+      e.target.style.backgroundColor = getBlackColor();
+    });
+  });
 }
 createGrid();
 
@@ -39,22 +52,36 @@ let getRandomColor = () => { return 'rgb(' + Math.floor(Math.random() * 256) + '
 let getBlackColor = () => { return 'rgb(0,0,0)' };
 
 let blackColor = getBlackColor();
+let randomColor = getRandomColor();
 
+let selectedColor = blackColor;
 
-colorsBtn.forEach((btn) => {
-  btn.addEventListener('click', (e) => {
-
-  })
-});
-
-let squares = document.querySelectorAll('.square');
-squares.forEach((sqr) => {
-  sqr.addEventListener('mouseover', (e) => {
-    e.target.style.backgroundColor = getRandomColor();
+// Buttons functionality
+rainbowBtn.addEventListener('click', () => {
+  let squares = document.querySelectorAll('.square');
+  squares.forEach((sqr) => {
+    sqr.addEventListener('mouseover', (e) => {
+      e.target.style.backgroundColor = getRandomColor();
+    });
   });
 });
 
+blackBtn.addEventListener('click', () => {
+  let squares = document.querySelectorAll('.square');
+  squares.forEach((sqr) => {
+    sqr.addEventListener('mouseover', (e) => {
+      e.target.style.backgroundColor = getBlackColor();
+    });
+  });
+});
 
-colorPicker.addEventListener('change', (e) => {
-  randomColor = e.target.value;
-})
+colorPicker.addEventListener('change', () => {
+  let squares = document.querySelectorAll('.square');
+  squares.forEach((sqr) => {
+    sqr.addEventListener('mouseover', (e) => {
+      e.target.style.backgroundColor = colorPicker.value;
+    });
+  });
+});
+
+resetBtn.addEventListener('click', resetGrid);
