@@ -1,13 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Etch-a-Sketch</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <div class="container"></div>
+  <main>
+    <div class="container options">
+      <input type="number" name="grid" id="grid" placeholder="...grid size max 100" max="100" autofocus>
+      <input type="button" name="black" id="black" value="Black">
+      <input type="button" name="rainbow" id="rainbow" value="Rainbow">
+
+      <div class="colorPicker-container">
+        <label for="colorPicker">Choose your color:</label>
+        <input type="color" name="colorPicker" id="colorPicker">
+      </div>
+    </div>
+    <div class="container grid"></div>
+  </main>
   <script src="script.js"></script>
 </body>
+
 </html>

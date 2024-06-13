@@ -1,14 +1,27 @@
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 960px;
+  height: 100vh;
+  margin: 0 auto;
+  background-color: cadetblue;
+}
+
 .container {
   display: flex;
   flex-wrap: wrap;
   width: 300px;
   height: 300px;
-  margin: 0 auto;
 }
 
 .square {
-  /* width: 1%; */
-  /* height: 1%; */
   background-color: aquamarine;
   box-sizing: border-box;
   border: 1px dotted black;
@@ -16,3 +29,62 @@
   justify-content: center;
   align-items: center;
 }
+
+.options {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+.options input[type="button"],
+input[id='grid'] {
+  height: auto;
+  /* Ensure inputs do not stretch to 100% height */
+  align-self: flex-start;
+  /* Align inputs to the start of the container */
+  width: 50%;
+  padding: 10px 0;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 5px 5px 10px grey;
+  text-transform: uppercase;
+}
+
+.options input[name='black'] {
+  background-color: black;
+  color: white;
+}
+
+.options input[name='rainbow'] {
+  background-image: linear-gradient(to right, red, orange, rgb(198, 198, 0), green, blue, indigo, violet);
+  color: white;
+}
+
+.options input[type='color'] {
+  width: 50%;
+  height: 40px;
+}
+
+.options input[id='grid'] {
+  border: 1px solid grey;
+}
+
+.options input[id='grid']::placeholder {
+  font-size: 0.7rem;
+  font-style: italic;
+  text-transform: none;
+  text-align: center;
+}
+
+.colorPicker-container{
+  display: flex;
+  flex-direction: column;
+}
+.colorPicker-container label{
+  width: 50%;
+  font-family: monospace;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
