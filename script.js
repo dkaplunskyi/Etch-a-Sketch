@@ -5,12 +5,16 @@ let rainbowBtn = document.querySelector('#rainbow');
 let blackBtn = document.querySelector('#black');
 let resetBtn = document.querySelector('#reset');
 
-let gridAria = 16;
+let defaultGridSize = 16;
+let gridAria = defaultGridSize;
 
 grid.addEventListener('change', (e) => {
   let value = e.target.value;
-  if (value > 100) {
+  if(!value){
+    gridAria = defaultGridSize;
+  }else if (value > 100) {
     alert('Maximum size is 100');
+    grid.value = '';
   } else {
     gridAria = value;
     resetGrid();
