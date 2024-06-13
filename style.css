@@ -1,4 +1,4 @@
-.container{
+.container {
   display: flex;
   flex-wrap: wrap;
   width: 300px;
@@ -6,7 +6,7 @@
   margin: 0 auto;
 }
 
-.square{
+.square {
   /* width: 1%; */
   /* height: 1%; */
   background-color: aquamarine;
