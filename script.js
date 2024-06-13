@@ -6,9 +6,14 @@ let colorsBtn = document.querySelectorAll('input[type="button"]');
 let gridAria = 16;
 
 grid.addEventListener('change', (e) => {
-  gridAria = e.target.value;
-  deleteGrid();
-  createGrid();
+  let value = e.target.value;
+  if (value > 100) {
+    alert('Maximum size is 100');
+  } else {
+    gridAria = e.target.value;
+    deleteGrid();
+    createGrid();
+  }
 })
 
 let deleteGrid = () => {
