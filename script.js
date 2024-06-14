@@ -3,6 +3,7 @@ let grid = document.querySelector('#grid');
 let colorPicker = document.querySelector('#colorPicker');
 let rainbowBtn = document.querySelector('#rainbow');
 let blackBtn = document.querySelector('#black');
+let whiteBtn = document.querySelector('#white');
 let resetBtn = document.querySelector('#reset');
 
 let defaultGridSize = 64;
@@ -58,11 +59,7 @@ createGrid();
 
 let getRandomColor = () => { return 'rgb(' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ')' };
 let getBlackColor = () => { return 'rgb(0,0,0)' };
-
-let blackColor = getBlackColor();
-// let randomColor = getRandomColor();
-
-let selectedColor = blackColor;
+let getWhiteColor = () => { return 'rgb(255,255,255)' };
 
 // Buttons functionality
 // The rainbow button event
@@ -81,6 +78,16 @@ blackBtn.addEventListener('click', () => {
   squares.forEach((sqr) => {
     sqr.addEventListener('mouseover', (e) => {
       e.target.style.backgroundColor = getBlackColor();
+    });
+  });
+});
+
+//The white color button event
+whiteBtn.addEventListener('click', () => {
+  let squares = document.querySelectorAll('.square');
+  squares.forEach((sqr) => {
+    sqr.addEventListener('mouseover', (e) => {
+      e.target.style.backgroundColor = getWhiteColor();
     });
   });
 });
