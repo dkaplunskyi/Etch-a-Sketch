@@ -24,8 +24,6 @@ grid.addEventListener('change', (e) => {
 
 // Delete grid and create a new grid layout
 let resetGrid = () => {
-  // gridAria = defaultGridSize;
-  // grid.value = '';
   deleteGrid();
   createGrid();
 }
