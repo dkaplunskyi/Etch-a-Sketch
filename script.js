@@ -61,47 +61,33 @@ createGrid();
 let getRandomColor = () => { return 'rgb(' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ')' };
 let getBlackColor = () => { return 'rgb(0,0,0)' };
 let getWhiteColor = () => { return 'rgb(255,255,255)' };
+let getPickerColor = () => {return colorPicker.value}
 
 // Buttons functionality
-// The rainbow button event
-rainbowBtn.addEventListener('click', () => {
-  let squares = document.querySelectorAll('.square');
-  squares.forEach((sqr) => {
-    sqr.addEventListener('mouseover', (e) => {
-      e.target.style.backgroundColor = getRandomColor();
-    });
-  });
-});
-
-// The black color button event
-blackBtn.addEventListener('click', () => {
-  let squares = document.querySelectorAll('.square');
-  squares.forEach((sqr) => {
-    sqr.addEventListener('mouseover', (e) => {
-      e.target.style.backgroundColor = getBlackColor();
-    });
-  });
-});
-
-//The white color button event
-whiteBtn.addEventListener('click', () => {
-  let squares = document.querySelectorAll('.square');
-  squares.forEach((sqr) => {
-    sqr.addEventListener('mouseover', (e) => {
-      e.target.style.backgroundColor = getWhiteColor();
-    });
-  });
-});
-
-// The color picker event
-colorPicker.addEventListener('change', () => {
-  let squares = document.querySelectorAll('.square');
-  squares.forEach((sqr) => {
-    sqr.addEventListener('mouseover', (e) => {
-      e.target.style.backgroundColor = colorPicker.value;
-    });
-  });
-});
-
 // The reset button event
 resetBtn.addEventListener('click', resetGrid);
+
+let setColorChangeEvent = (colorFunction) => {
+  let squares = document.querySelectorAll('.square');
+  squares.forEach((sqr) => {
+    sqr.addEventListener('mouseover', (e) => {
+      e.target.style.backgroundColor = colorFunction();
+    });
+  })
+}
+
+blackBtn.addEventListener('click', () => {
+  setColorChangeEvent(getBlackColor);
+})
+
+whiteBtn.addEventListener('click', () => {
+  setColorChangeEvent(getWhiteColor);
+})
+
+rainbowBtn.addEventListener('click', () => {
+  setColorChangeEvent(getRandomColor);
+})
+
+rainbowBtn.addEventListener('change', () => {
+  setColorChangeEvent(getPickerColor);
+})
