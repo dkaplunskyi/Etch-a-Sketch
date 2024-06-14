@@ -24,6 +24,8 @@ grid.addEventListener('change', (e) => {
 
 // Delete grid and create a new grid layout
 let resetGrid = () => {
+  // gridAria = defaultGridSize;
+  // grid.value = '';
   deleteGrid();
   createGrid();
 }
@@ -46,13 +48,12 @@ let createGrid = () => {
   }
 
   // Set black color when page loaded
-
-  // let squares = document.querySelectorAll('.square');
-  // squares.forEach((sqr) => {
-  //   sqr.addEventListener('mouseover', (e) => {
-  //     e.target.style.backgroundColor = getBlackColor();
-  //   });
-  // });
+  let squares = document.querySelectorAll('.square');
+  squares.forEach((sqr) => {
+    sqr.addEventListener('mouseover', (e) => {
+      e.target.style.backgroundColor = getBlackColor();
+    });
+  });
 }
 // Start creating the grid
 createGrid();
