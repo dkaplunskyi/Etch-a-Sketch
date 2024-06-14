@@ -5,7 +5,7 @@ let rainbowBtn = document.querySelector('#rainbow');
 let blackBtn = document.querySelector('#black');
 let resetBtn = document.querySelector('#reset');
 
-let defaultGridSize = 16;
+let defaultGridSize = 64;
 let gridAria = defaultGridSize;
 
 // Event for user input
