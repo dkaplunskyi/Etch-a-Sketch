@@ -27,6 +27,7 @@ grid.addEventListener('change', (e) => {
 let resetGrid = () => {
   deleteGrid();
   createGrid();
+  colorPicker.value = 'rgb(0,0,0)';
 }
 
 // Delete grid
