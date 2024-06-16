@@ -13,8 +13,15 @@ console.log(windowHeight);
 container.style.width = `${windowHeight - 150}px`;
 container.style.height = `${windowHeight - 150}px`;
 
-let defaultGridSize = 100;
+let defaultGridSize = 50;
 let gridAria = defaultGridSize;
+
+function setDefaultGridSize(size){
+  gridRange.value = size;
+  gridRangeOutputValue.textContent = size;
+}
+setDefaultGridSize(defaultGridSize);
+
 
 // Grid range event
 gridRange.addEventListener('input', (e) => {
