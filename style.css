@@ -122,7 +122,7 @@ input[type='range'] {
   border: 1px solid grey;
 }
 
-.options input[id='grid']::placeholder {
+.options input[id='gridSizeInput']::placeholder {
   font-size: 0.7rem;
   font-style: italic;
   text-transform: none;
