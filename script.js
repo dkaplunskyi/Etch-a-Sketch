@@ -1,6 +1,6 @@
 let container = document.querySelector('.grid');
 let gridRange = document.querySelector('#gridRange');
-let gridRangeOutputValue = document.querySelector('.gridRangeOutputValue');
+let gridRangeOutputValue = document.querySelectorAll('.gridRangeOutputValue');
 let gridSizeInput = document.querySelector('#gridSizeInput');
 let colorPicker = document.querySelector('#colorPicker');
 let rainbowBtn = document.querySelector('#rainbow');
@@ -16,9 +16,11 @@ container.style.height = `${windowHeight - 150}px`;
 let defaultGridSize = 50;
 let gridAria = defaultGridSize;
 
-function setDefaultGridSize(size){
+function setDefaultGridSize(size) {
   gridRange.value = size;
-  gridRangeOutputValue.textContent = size;
+  gridRangeOutputValue.forEach((e) => {
+    e.textContent = size;
+  })
 }
 setDefaultGridSize(defaultGridSize);
 
@@ -27,7 +29,9 @@ setDefaultGridSize(defaultGridSize);
 gridRange.addEventListener('input', (e) => {
   let value = e.target.value;
 
-  gridRangeOutputValue.textContent = value;
+  gridRangeOutputValue.forEach((e) => {
+    e.textContent = value;
+  })
   gridAria = value;
   resetGrid();
 })
