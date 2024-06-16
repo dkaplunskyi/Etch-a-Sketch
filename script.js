@@ -1,12 +1,17 @@
 let container = document.querySelector('.grid');
 let gridRange = document.querySelector('#gridRange');
 let gridRangeOutputValue = document.querySelector('.gridRangeOutputValue');
-let grid = document.querySelector('#grid');
+let gridSizeInput = document.querySelector('#gridSizeInput');
 let colorPicker = document.querySelector('#colorPicker');
 let rainbowBtn = document.querySelector('#rainbow');
 let blackBtn = document.querySelector('#black');
 let whiteBtn = document.querySelector('#white');
 let resetBtn = document.querySelector('#reset');
+
+let windowHeight = window.innerHeight;
+console.log(windowHeight);
+container.style.width = `${windowHeight - 150}px`;
+container.style.height = `${windowHeight - 150}px`;
 
 let defaultGridSize = 100;
 let gridAria = defaultGridSize;
@@ -21,7 +26,7 @@ gridRange.addEventListener('input', (e) => {
 })
 
 // Event for user input
-grid.addEventListener('change', (e) => {
+gridSizeInput.addEventListener('change', (e) => {
   let value = e.target.value;
   if (!value) {
     gridAria = defaultGridSize;

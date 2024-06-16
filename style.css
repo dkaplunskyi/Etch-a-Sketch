@@ -76,7 +76,7 @@ main {
 }
 
 .options input[type="button"],
-input[id='grid'],
+input[id='gridSizeInput'],
 input[type='range'] {
   height: auto;
   /* Ensure inputs do not stretch to 100% height */
