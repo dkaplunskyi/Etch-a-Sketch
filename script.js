@@ -1,4 +1,6 @@
 let container = document.querySelector('.grid');
+let gridRange = document.querySelector('#gridRange');
+let gridRangeOutputValue = document.querySelector('.gridRangeOutputValue');
 let grid = document.querySelector('#grid');
 let colorPicker = document.querySelector('#colorPicker');
 let rainbowBtn = document.querySelector('#rainbow');
@@ -8,6 +10,15 @@ let resetBtn = document.querySelector('#reset');
 
 let defaultGridSize = 100;
 let gridAria = defaultGridSize;
+
+// Grid range event
+gridRange.addEventListener('input', (e) => {
+  let value = e.target.value;
+
+  gridRangeOutputValue.textContent = value;
+  gridAria = value;
+  resetGrid();
+})
 
 // Event for user input
 grid.addEventListener('change', (e) => {
@@ -61,7 +72,7 @@ createGrid();
 let getRandomColor = () => { return 'rgb(' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ')' };
 let getBlackColor = () => { return 'rgb(0,0,0)' };
 let getWhiteColor = () => { return 'rgb(255,255,255)' };
-let getPickerColor = () => {return colorPicker.value}
+let getPickerColor = () => { return colorPicker.value }
 
 // Buttons functionality
 // The reset button event

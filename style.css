@@ -66,12 +66,18 @@ main {
   width: 300px;
 }
 
+.options .gridRange-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .options input[id='reset'] {
   background-color: yellowgreen;
 }
 
 .options input[type="button"],
-input[id='grid'] {
+input[id='grid'],
+input[type='range'] {
   height: auto;
   /* Ensure inputs do not stretch to 100% height */
   align-self: flex-start;
