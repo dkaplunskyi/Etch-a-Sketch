@@ -88,6 +88,8 @@ rainbowBtn.addEventListener('click', () => {
   setColorChangeEvent(getRandomColor);
 })
 
-rainbowBtn.addEventListener('change', () => {
+colorPicker.addEventListener('change', () => {
   setColorChangeEvent(getPickerColor);
+  console.log(getPickerColor());
+
 })
