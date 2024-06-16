@@ -8,20 +8,21 @@ let blackBtn = document.querySelector('#black');
 let whiteBtn = document.querySelector('#white');
 let resetBtn = document.querySelector('#reset');
 
+// Get user's window height length
 let windowHeight = window.innerHeight;
-console.log(windowHeight);
 container.style.width = `${windowHeight - 150}px`;
 container.style.height = `${windowHeight - 150}px`;
 
+// Default grid size number
 let defaultGridSize = 50;
 let gridAria = defaultGridSize;
 
+// Set default grid size
 function setDefaultGridSize(size) {
   gridRange.value = size;
   gridRangeOutputValue.textContent = `${size}x${size}`;
 }
 setDefaultGridSize(defaultGridSize);
-
 
 // Grid range event
 gridRange.addEventListener('input', (e) => {
@@ -29,6 +30,8 @@ gridRange.addEventListener('input', (e) => {
   gridRangeOutputValue.textContent = `${value}x${value}`;
   gridAria = value;
   resetGrid();
+  gridSizeInput.value = '';
+
 })
 
 // Event for user input
@@ -41,6 +44,8 @@ gridSizeInput.addEventListener('change', (e) => {
     grid.value = '';
   } else {
     gridAria = value;
+    gridRangeOutputValue.textContent = `${value}x${value}`;
+    gridRange.value = value;
     resetGrid();
   }
 })

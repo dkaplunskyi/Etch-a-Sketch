@@ -69,6 +69,7 @@ main {
 .options .gridRange-container {
   display: flex;
   flex-direction: column;
+  font-family: monospace;
 }
 
 .options input[id='reset'] {
