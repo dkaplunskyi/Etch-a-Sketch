@@ -52,7 +52,7 @@ main {
 .square {
   /* background-color: rgb(52 61 32); */
   box-sizing: border-box;
-  /* border: 1px dotted rgb(154 205 50 / 50%); */
+  border: 1px solid rgba(59, 60, 57, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
